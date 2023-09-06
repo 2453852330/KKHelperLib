@@ -30,6 +30,19 @@ public:
 
 
 	/** Debug Info 在屏幕固定位置 */
-	UFUNCTION(BlueprintCallable,Category="KKHelperLib|Debug",meta=(WorldContext=WorldContext))
+	UFUNCTION(BlueprintCallable,Category="KKHelperLib|Debug")
 	static void Lib_DebugStringOnFixedPos(const FString & InContent,int32 FixPos = 0 , float Time = 2.f, FColor Color = FColor::Red);
+
+	/** Debug Hit Result 信息 */
+	UFUNCTION(BlueprintCallable,Category="KKHelperLib|Debug")
+	static void Lib_DebugHitResult(const FHitResult & HitResult,bool bShowOnScreen = false,float Time = 2.f);
+
+	/** 获取 NetMode 的字符串 */
+	static FString Lib_GetNetModeString(ENetMode NetMode);
+		
+	/** 获取 Role 的字符串 */
+	static FString Lib_GetRoleString(ENetRole NetRole);
+	
+	/** 获取 Actor Spawn 参数,总是生成 */
+	static FActorSpawnParameters Lib_GetActorAlwaysSpawnParameter_C();
 };
