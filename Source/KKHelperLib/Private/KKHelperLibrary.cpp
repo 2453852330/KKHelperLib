@@ -3,8 +3,6 @@
 
 #include "KKHelperLibrary.h"
 
-// fix include windows.h before MinWindows.h
-#include "EngineUtils.h"
 
 // com lib start  : TComPtr
 #include "Windows/COMPointer.h"
@@ -13,6 +11,8 @@
 // debug hit result start 
 #include "PhysicalMaterials/PhysicalMaterial.h"
 // debug hit result end
+
+
 
 
 #include "Windows/AllowWindowsPlatformTypes.h"
@@ -146,11 +146,27 @@ bool UKKHelperLibrary::Lib_SaveFileDialog(const FString& DialogTitle, const FStr
 	return CF_FileDialogShared(true, ParentWindowHandle, DialogTitle, DefaultPath, DefaultFile, FileTypes, Flags, OutFilenames, DummyFilterIndex );
 }
 
+bool UKKHelperLibrary::Lib_SaveFileDialogSimple(const FString& DialogTitle, const FString& DefaultPath,
+	const FString& FileTypes, FString& OutFilename)
+{
+	const void * ParentWindowHandle = FSlateApplication::Get().FindBestParentWindowHandleForDialogs(nullptr);
+	uint32 Flags = 0x00;
+	int32 DummyFilterIndex = 0;
+	TArray<FString> Paths;
+	bool ret = CF_FileDialogShared(true, ParentWindowHandle, DialogTitle, DefaultPath, TEXT(""), FileTypes, Flags, Paths, DummyFilterIndex );
+	OutFilename = Paths.Num() ? Paths[0] : TEXT("Error");
+	if (Paths.Num() <= 0)
+	{
+		ret = false;
+	}
+	return ret;
+}
+
 bool UKKHelperLibrary::Lib_OpenDirectoryDialog(const FString& DialogTitle, const FString& DefaultPath, FString& OutFolderName)
 {
 	const void * ParentWindowHandle = FSlateApplication::Get().FindBestParentWindowHandleForDialogs(nullptr);
 	// FScopedSystemModalMode SystemModalScope;
-
+	
 	bool bSuccess = false;
 
 	TComPtr<IFileOpenDialog> FileDialog;

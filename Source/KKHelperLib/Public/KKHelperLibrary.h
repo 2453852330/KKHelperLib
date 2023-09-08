@@ -4,7 +4,6 @@
 
 #include "CoreMinimal.h"
 #include "KKHelperLibType.h"
-
 #include "Kismet/BlueprintFunctionLibrary.h"
 #include "KKHelperLibrary.generated.h"
 
@@ -57,11 +56,14 @@ public:
 	UFUNCTION(BlueprintCallable,Category="KKHelperLibrary|Dialog")
 	static bool Lib_SaveFileDialog(const FString& DialogTitle, const FString& DefaultPath, const FString& DefaultFile, const FString& FileTypes, bool bMultiSelect, TArray<FString>& OutFilenames);
 	UFUNCTION(BlueprintCallable,Category="KKHelperLibrary|Dialog")
+	static bool Lib_SaveFileDialogSimple(const FString& DialogTitle, const FString& DefaultPath, const FString& FileTypes,FString & OutFilename);
+	UFUNCTION(BlueprintCallable,Category="KKHelperLibrary|Dialog")
 	static bool Lib_OpenDirectoryDialog(const FString& DialogTitle, const FString& DefaultPath, FString& OutFolderName);
-
 	UFUNCTION(BlueprintCallable,Category="KKHelperLibrary|Dialog")
 	static bool Lib_OpenFontDialog(FString& OutFontName, float& OutHeight, FFontImportFlagsBP & OutFlags);
 
+	
+	
 private:
 	static bool CF_FileDialogShared(bool bSave, const void* ParentWindowHandle, const FString& DialogTitle, const FString& DefaultPath, const FString& DefaultFile, const FString& FileTypes, uint32 Flags, TArray<FString>& OutFilenames, int32& OutFilterIndex);
 
