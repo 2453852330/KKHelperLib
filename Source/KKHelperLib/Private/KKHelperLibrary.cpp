@@ -317,6 +317,8 @@ bool UKKHelperLibrary::CF_FileDialogShared(bool bSave, const void* ParentWindowH
 		}
 
 		// Set-up the file type filters
+		// 解析传递的 文件类型参数,比如  txt|*.txt|all files|*.*
+		// 构建 COMDLG_FILTERSPEC 类型的数组,存储每种文件类型
 		TArray<FString> UnformattedExtensions;
 		TArray<COMDLG_FILTERSPEC> FileDialogFilters;
 		{
@@ -334,12 +336,15 @@ bool UKKHelperLibrary::CF_FileDialogShared(bool bSave, const void* ParentWindowH
 				}
 			}
 		}
+		// 调用 SetFileTypes() 设置文件类型;
 		FileDialog->SetFileTypes(FileDialogFilters.Num(), FileDialogFilters.GetData());
 
 		// Show the picker
 		if (SUCCEEDED(FileDialog->Show((HWND)ParentWindowHandle)))
 		{
 			OutFilterIndex = 0;
+			// 获取当前选择的 文件类型索引, 就是之前设置的数组的Index : txt|*.txt|all files|*.*
+			// 但是其默认索引是从1开始的,所以减去了1,获取了真实的索引值;
 			if (SUCCEEDED(FileDialog->GetFileTypeIndex((UINT*)&OutFilterIndex)))
 			{
 				OutFilterIndex -= 1; // GetFileTypeIndex returns a 1-based index
