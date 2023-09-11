@@ -73,58 +73,58 @@ public:
 	/** 绘制Debug线条,支持Shipping模式 */
 	UFUNCTION(BlueprintCallable,Category="KKHelperLibrary|DrawDebug",meta=(WorldContext=WorldContextObject))
 	static void Lib_DrawDebugLineSupportShipping(UObject * WorldContextObject,FVector LineStart,FVector LineEnd,FLinearColor LinearColor = FLinearColor::White,bool bPersistent = false ,float LifeTime = 1.f,int32 DepthPriority = 0,float Thickness = 0.f);
-	/**  */
+	/** 绘制圆环 */
 	UFUNCTION(BlueprintCallable,Category="KKHelperLibrary|DrawDebug",meta=(WorldContext=WorldContextObject))
-	static void Lib_DrawDebugCircleSupportShipping(const UObject* WorldContextObject, FVector Center, float Radius, int32 NumSegments=12, FLinearColor LineColor = FLinearColor::White,bool bPersistent = false, float LifeTime=0.f, int32 DepthPriority = 0,float Thickness=0.f, FVector YAxis=FVector(0.f,1.f,0.f),FVector ZAxis=FVector(0.f,0.f,1.f), bool bDrawAxis=false);
-	/**  */
+	static void Lib_DrawDebugCircleSupportShipping(const UObject* WorldContextObject, FVector Center, float Radius=50.f, int32 NumSegments=12, FLinearColor LineColor = FLinearColor::White,bool bPersistent = false, float LifeTime=0.f, int32 DepthPriority = 0,float Thickness=0.f, FVector YAxis=FVector(0.f,1.f,0.f),FVector ZAxis=FVector(0.f,0.f,1.f), bool bDrawAxis=false);
+	/** 绘制点 */
 	UFUNCTION(BlueprintCallable,Category="KKHelperLibrary|DrawDebug",meta=(WorldContext=WorldContextObject))
-	static void Lib_DrawDebugPointSupportShipping(const UObject* WorldContextObject, const FVector Position, float Size, FLinearColor PointColor, bool bPersistent = false ,float LifeTime = 1.f,int32 DepthPriority = 0);
-	/**  */
+	static void Lib_DrawDebugPointSupportShipping(const UObject* WorldContextObject, const FVector Position, float Size = 3.f, FLinearColor PointColor = FLinearColor::White, bool bPersistent = false ,float LifeTime = 1.f,int32 DepthPriority = 0);
+	/** 绘制箭头 */
 	UFUNCTION(BlueprintCallable,Category="KKHelperLibrary|DrawDebug",meta=(WorldContext=WorldContextObject))
-	static void Lib_DrawDebugArrowSupportShipping(const UObject* WorldContextObject, const FVector LineStart, const FVector LineEnd, float ArrowSize, FLinearColor LineColor, bool bPersistent = false ,float LifeTime = 1.f,int32 DepthPriority = 0,float Thickness = 0.f);
-	/**  */
+	static void Lib_DrawDebugArrowSupportShipping(const UObject* WorldContextObject, const FVector LineStart, const FVector LineEnd, float ArrowSize = 20.f, FLinearColor LineColor = FLinearColor::White, bool bPersistent = false ,float LifeTime = 1.f,int32 DepthPriority = 0,float Thickness = 0.f);
+	/** 绘制方框 */
 	UFUNCTION(BlueprintCallable,Category="KKHelperLibrary|DrawDebug",meta=(WorldContext=WorldContextObject))
-	static void Lib_DrawDebugBoxSupportShipping(const UObject* WorldContextObject, const FVector Center, FVector Extent, FLinearColor LineColor, const FRotator Rotation=FRotator::ZeroRotator, bool bPersistent = false ,float LifeTime = 1.f,int32 DepthPriority = 0, float Thickness = 0.f);
-	/**  */
+	static void Lib_DrawDebugBoxSupportShipping(const UObject* WorldContextObject, const FVector Center, FVector Extent, FLinearColor LineColor = FLinearColor::White , const FRotator Rotation = FRotator::ZeroRotator, bool bPersistent = false ,float LifeTime = 1.f,int32 DepthPriority = 0, float Thickness = 0.f);
+	/** 绘制坐标轴 */
 	UFUNCTION(BlueprintCallable,Category="KKHelperLibrary|DrawDebug",meta=(WorldContext=WorldContextObject))
-	static void Lib_DrawDebugCoordinateSystemSupportShipping(const UObject* WorldContextObject, const FVector AxisLoc, const FRotator AxisRot, float Scale=1.f,bool bPersistent = false ,float LifeTime = 1.f,int32 DepthPriority = 0,float Thickness = 0.f);
-	/**  */
+	static void Lib_DrawDebugCoordinateSystemSupportShipping(const UObject* WorldContextObject, const FVector AxisLoc, const FRotator AxisRot, float Scale = 1.f,bool bPersistent = false ,float LifeTime = 1.f,int32 DepthPriority = 0,float Thickness = 0.f);
+	/** 绘制球 */
 	UFUNCTION(BlueprintCallable,Category="KKHelperLibrary|DrawDebug",meta=(WorldContext=WorldContextObject))
-	static void Lib_DrawDebugSphereSupportShipping(const UObject* WorldContextObject, const FVector Center, float Radius=100.f, int32 Segments=12, FLinearColor LineColor = FLinearColor::White, bool bPersistent = false ,float LifeTime = 1.f,int32 DepthPriority = 0,float Thickness = 0.f);
-	/**  */
+	static void Lib_DrawDebugSphereSupportShipping(const UObject* WorldContextObject, const FVector Center, float Radius = 100.f, int32 Segments = 12, FLinearColor LineColor = FLinearColor::White, bool bPersistent = false ,float LifeTime = 1.f,int32 DepthPriority = 0,float Thickness = 0.f);
+	/** 绘制圆柱 */
 	UFUNCTION(BlueprintCallable,Category="KKHelperLibrary|DrawDebug",meta=(WorldContext=WorldContextObject))
-	static void Lib_DrawDebugCylinderSupportShipping(const UObject* WorldContextObject, const FVector Start, const FVector End, float Radius=100.f, int32 Segments=12, FLinearColor LineColor = FLinearColor::White, bool bPersistent = false ,float LifeTime = 1.f,int32 DepthPriority = 0,float Thickness = 0.f);
-	/**  */
+	static void Lib_DrawDebugCylinderSupportShipping(const UObject* WorldContextObject, const FVector Start, const FVector End, float Radius = 100.f, int32 Segments = 12, FLinearColor LineColor = FLinearColor::White, bool bPersistent = false ,float LifeTime = 1.f,int32 DepthPriority = 0,float Thickness = 0.f);
+	/** 绘制圆锥-弧度版本 */
 	UFUNCTION(BlueprintCallable,Category="KKHelperLibrary|DrawDebug",meta=(WorldContext=WorldContextObject))
-	static void Lib_DrawDebugConeSupportShipping(UObject* WorldContextObject, const FVector Origin, const FVector Direction, float Length, float AngleWidth, float AngleHeight, int32 NumSides, FLinearColor LineColor,  bool bPersistent = false ,float LifeTime = 1.f,int32 DepthPriority = 0,float Thickness = 0.f);
-	/**  */
+	static void Lib_DrawDebugConeSupportShipping(UObject* WorldContextObject, const FVector Origin, const FVector Direction = FVector(1.f,0.f,0.f), float Length = 100.f, float RadialWidth = 0.5236f , float RadialHeight = 0.5236f , int32 NumSides = 12, FLinearColor LineColor = FLinearColor::White,  bool bPersistent = false ,float LifeTime = 1.f,int32 DepthPriority = 0,float Thickness = 0.f);
+	/** 绘制圆锥-角度版本 */
 	UFUNCTION(BlueprintCallable,Category="KKHelperLibrary|DrawDebug",meta=(WorldContext=WorldContextObject))
-	static void Lib_DrawDebugConeInDegreesSupportShipping(UObject* WorldContextObject, const FVector Origin, const FVector Direction, float Length=100.f, float AngleWidth=45.f, float AngleHeight=45.f, int32 NumSides = 12, FLinearColor LineColor = FLinearColor::White,  bool bPersistent = false ,float LifeTime = 1.f,int32 DepthPriority = 0,float Thickness = 0.f);
-	/**  */
+	static void Lib_DrawDebugConeInDegreesSupportShipping(UObject* WorldContextObject, const FVector Origin, const FVector Direction = FVector(1.f,0.f,0.f), float Length=100.f, float AngleWidth = 45.f, float AngleHeight = 45.f, int32 NumSides = 12, FLinearColor LineColor = FLinearColor::White,  bool bPersistent = false ,float LifeTime = 1.f,int32 DepthPriority = 0,float Thickness = 0.f);
+	/** 绘制胶囊体 */
 	UFUNCTION(BlueprintCallable,Category="KKHelperLibrary|DrawDebug",meta=(WorldContext=WorldContextObject))
-	static void Lib_DrawDebugCapsuleSupportShipping(const UObject* WorldContextObject, const FVector Center, float HalfHeight, float Radius, const FRotator Rotation, FLinearColor LineColor = FLinearColor::White,  bool bPersistent = false ,float LifeTime = 1.f,int32 DepthPriority = 0,float Thickness = 0.f);
-	/**  */
+	static void Lib_DrawDebugCapsuleSupportShipping(const UObject* WorldContextObject, const FVector Center, float HalfHeight = 44.f , float Radius = 30.f, const FRotator Rotation = FRotator::ZeroRotator, FLinearColor LineColor = FLinearColor::White,  bool bPersistent = false ,float LifeTime = 1.f,int32 DepthPriority = 0,float Thickness = 0.f);
+	/** 绘制文字 */
 	UFUNCTION(BlueprintCallable,Category="KKHelperLibrary|DrawDebug",meta=(WorldContext=WorldContextObject))
 	static void Lib_DrawDebugStringSupportShipping(const UObject* WorldContextObject, const FVector TextLocation, const FString& Text, class AActor* TestBaseActor = NULL, FLinearColor TextColor = FLinearColor::White,  float LifeTime = 1.f,int32 FontScale = 1 , bool bDrawShadow = false);
-	/**  */
+	/** 清除绘制的文字(只清除DrawDebugString) */
 	UFUNCTION(BlueprintCallable,Category="KKHelperLibrary|DrawDebug",meta=(WorldContext=WorldContextObject))
 	static void Lib_FlushDebugStringsSupportShipping(const UObject* WorldContextObject);
-	/**  */
+	/** 绘制平面 */
 	UFUNCTION(BlueprintCallable,Category="KKHelperLibrary|DrawDebug",meta=(WorldContext=WorldContextObject))
 	static void Lib_DrawDebugPlaneSupportShipping(const UObject* WorldContextObject, const FPlane& PlaneCoordinates, const FVector Location, float Size, FLinearColor PlaneColor = FLinearColor::White,  bool bPersistent = false ,float LifeTime = 1.f,int32 DepthPriority = 0,float Thickness = 0.f);
-	/**  */
+	/** 绘制视锥体 */
 	UFUNCTION(BlueprintCallable,Category="KKHelperLibrary|DrawDebug",meta=(WorldContext=WorldContextObject))
 	static void Lib_DrawDebugFrustumSupportShipping(UObject* WorldContextObject, const FTransform& FrustumTransform, FLinearColor FrustumColor = FLinearColor::White, bool bPersistent = false ,float LifeTime = 1.f,int32 DepthPriority = 0,float Thickness = 0.f);
-	/**  */
+	/** 绘制相机Actor */
 	UFUNCTION(BlueprintCallable,Category="KKHelperLibrary|DrawDebug",meta=(WorldContext=WorldContextObject))
 	static void Lib_DrawDebugCameraSupportShipping(const ACameraActor* CameraActor, FLinearColor CameraColor = FLinearColor::White, bool bPersistent = false ,float LifeTime = 1.f,int32 DepthPriority = 0,float Thickness = 0.f);
-	/**  */
+	/** 绘制float数据的直方图-通过Transform手动传递朝向 */
 	UFUNCTION(BlueprintCallable,Category="KKHelperLibrary|DrawDebug",meta=(WorldContext=WorldContextObject))
 	static void Lib_DrawDebugFloatHistoryTransformSupportShipping(const UObject* WorldContextObject, const FDebugFloatHistory& FloatHistory, const FTransform& DrawTransform, FVector2D DrawSize, FLinearColor DrawColor = FLinearColor::White, bool bPersistent = false ,float LifeTime = 1.f,int32 DepthPriority = 0);
-	/**  */
+	/** 绘制float数据的直方图-自动调整朝向 */
 	UFUNCTION(BlueprintCallable,Category="KKHelperLibrary|DrawDebug",meta=(WorldContext=WorldContextObject))
 	static void Lib_DrawDebugFloatHistoryLocationSupportShipping(const UObject* WorldContextObject, const FDebugFloatHistory& FloatHistory, FVector DrawLocation, FVector2D DrawSize, FLinearColor DrawColor = FLinearColor::White, bool bPersistent = false ,float LifeTime = 1.f,int32 DepthPriority = 0);
-	/**  */
+	/** 给绘制float的直方图添加点位数据 */
 	UFUNCTION(BlueprintCallable,BlueprintPure,Category="KKHelperLibrary|DrawDebug",meta=(WorldContext=WorldContextObject))
 	static FDebugFloatHistory Lib_AddFloatHistorySample(float Value, const FDebugFloatHistory& FloatHistory);
 	/** 清除绘制的Debug信息,支持Shipping模式 */
@@ -133,7 +133,7 @@ public:
 private:
 	// 打开对话框的实现函数
 	static bool CF_FileDialogShared(bool bSave, const void* ParentWindowHandle, const FString& DialogTitle, const FString& DefaultPath, const FString& DefaultFile, const FString& FileTypes, uint32 Flags, TArray<FString>& OutFilenames, int32& OutFilterIndex);
-	//
+	// 绘制函数的功能实现
 	static void CF_InternalDrawDebugCircle(const UWorld* InWorld, const FMatrix& TransformMatrix, float Radius, int32 Segments, const FColor& Color, bool bPersistent, float LifeTime, uint8 DepthPriority, float Thickness = 0.f);
 	static ULineBatchComponent* CF_GetDebugLineBatcher( const UWorld* InWorld, bool bPersistent, float LifeTime, bool bDepthIsForeground );
 	static float CF_GetDebugLineLifeTime(ULineBatchComponent* LineBatcher, float LifeTime, bool bPersistent);
@@ -147,6 +147,7 @@ private:
 	static void CF_DrawDebugFloatHistory(UWorld const & WorldRef, FDebugFloatHistory const & FloatHistory, FTransform const & DrawTransform, FVector2D const & DrawSize, FColor const & DrawColor, bool const & bPersistent, float const & LifeTime, uint8 const & DepthPriority);
 	static void CF_DrawDebugFloatHistory(UWorld const & WorldRef, FDebugFloatHistory const & FloatHistory, FVector const & DrawLocation, FVector2D const & DrawSize, FColor const & DrawColor, bool const & bPersistent, float const & LifeTime, uint8 const & DepthPriority);
 	static void CF_DrawDebugCone(UObject * InWorldContext, FVector const& Origin, FVector const& Direction, float Length, float AngleWidth, float AngleHeight, int32 NumSides, FColor const& DrawColor, bool bPersistentLines, float LifeTime, uint8 DepthPriority, float Thickness);
-
+	//
+	
 
 };

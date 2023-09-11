@@ -283,7 +283,6 @@ void UKKHelperLibrary::Lib_DrawDebugLineSupportShipping(UObject * WorldContextOb
 {
 	if (UWorld* World = GEngine->GetWorldFromContextObject(WorldContextObject, EGetWorldErrorMode::LogAndReturnNull))
 	{
-		
 		if (GEngine->GetNetMode(World) != NM_DedicatedServer)
 		{
 			if (ULineBatchComponent* const LineBatcher = CF_GetDebugLineBatcher(World, bPersistent, LifeTime, (DepthPriority == SDPG_Foreground)))
@@ -550,12 +549,12 @@ void UKKHelperLibrary::Lib_DrawDebugCylinderSupportShipping(const UObject* World
 }
 
 void UKKHelperLibrary::Lib_DrawDebugConeSupportShipping(UObject* WorldContextObject, const FVector Origin,
-	const FVector Direction, float Length, float AngleWidth, float AngleHeight, int32 NumSides, FLinearColor LineColor,
+	const FVector Direction, float Length, float RadialWidth, float RadialHeight, int32 NumSides, FLinearColor LineColor,
 	bool bPersistent, float LifeTime, int32 DepthPriority, float Thickness)
 {
 	if (GEngine->GetWorldFromContextObject(WorldContextObject, EGetWorldErrorMode::LogAndReturnNull))
 	{
-		CF_DrawDebugCone(WorldContextObject, Origin, Direction, Length, AngleWidth, AngleHeight, NumSides, LineColor.ToFColor(true), bPersistent, LifeTime, DepthPriority, Thickness);
+		CF_DrawDebugCone(WorldContextObject, Origin, Direction, Length, RadialWidth, RadialHeight, NumSides, LineColor.ToFColor(true), bPersistent, LifeTime, DepthPriority, Thickness);
 	}
 }
 
