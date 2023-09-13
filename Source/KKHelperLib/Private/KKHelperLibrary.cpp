@@ -60,11 +60,11 @@ FTransform& UKKHelperLibrary::Lib_ChangeTransformScale(FTransform& InTransform, 
 	return InTransform;
 }
 
-void UKKHelperLibrary::Lib_DebugStringOnFixedPos(const FString& InContent, int32 FixPos, float Time, FColor Color)
+void UKKHelperLibrary::Lib_DebugStringOnFixedPos(const FString& InContent, int32 FixPos, float Time, FLinearColor Color)
 {
 	if (GEngine)
 	{
-		GEngine->AddOnScreenDebugMessage(FixPos, Time, Color, InContent);
+		GEngine->AddOnScreenDebugMessage(FixPos, Time, Color.ToFColor(true), InContent);
 	}
 }
 

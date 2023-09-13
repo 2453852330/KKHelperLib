@@ -34,7 +34,7 @@ public:
 
 	/** Debug Info 在屏幕固定位置 */
 	UFUNCTION(BlueprintCallable,Category="KKHelperLibrary|Debug")
-	static void Lib_DebugStringOnFixedPos(const FString & InContent,int32 FixPos = 0 , float Time = 2.f, FColor Color = FColor::Red);
+	static void Lib_DebugStringOnFixedPos(const FString & InContent,int32 FixPos = 0 , float Time = 2.f, FLinearColor Color = FLinearColor::Red);
 
 	/** Debug Hit Result 信息 */
 	UFUNCTION(BlueprintCallable,Category="KKHelperLibrary|Debug")
